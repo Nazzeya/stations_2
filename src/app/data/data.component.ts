@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { IStation } from './models/station';
-import { stations as info } from './info/stations';
+import { stations as info } from './data/stations';
         
 @Component({
     selector: 'data-comp',
@@ -8,13 +8,8 @@ import { stations as info } from './info/stations';
     styleUrls: ['./data.component.css']
 })
 export class DataComponent{ 
-      
-    message: string = "DataModule";
+    
     stations: IStation[] = info;
-
-    fill:string | undefined;
-
-    colorNum: number = 2;
 
     isBlack: boolean = true;
     isLightBlue: boolean = false;
