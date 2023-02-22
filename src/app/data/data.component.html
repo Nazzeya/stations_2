@@ -1,0 +1,15 @@
+<svg width="1000px" height="500px">
+    <svg *ngFor="let station of stations">
+        <rect
+        [class.black]="change()"
+        [class.lightBlue]="isLightBlue"
+        [class.lightPink]="isLightPink"
+        [attr.x]="station.coordinates.x" 
+        [attr.y]="station.coordinates.y" 
+        [attr.width]="station.size.width" 
+        [attr.height]="station.size.height"
+        (click)="change()"
+        >
+        </rect>
+    </svg>
+</svg>
