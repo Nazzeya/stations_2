@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
-import { IStation } from './models/station';
-import { stations as info } from './data/stations';
+import { IFigure } from './models/figure';
+import { figures as info } from './data/figures';
         
 @Component({
     selector: 'data-comp',
@@ -9,24 +9,22 @@ import { stations as info } from './data/stations';
 })
 export class DataComponent{ 
     
-    stations: IStation[] = info;
-
-    isBlack: boolean = true;
-    isLightBlue: boolean = false;
-    isLightPink: boolean = false;
-
-    change() {
-        if(this.isBlack==true) {
-            this.isLightBlue=true;
-            this.isBlack=false;
+    figures: IFigure[] = info;
+    
+    change(color: string){
+        if(color=="black") {
+            return "yellow"
         }
-        else if (this.isLightBlue==true) {
-            this.isLightPink=true;
-            this.isLightBlue=false;
+        if(color=="yellow"){
+            return "blue"
         }
-        else {
-            this.isBlack = true;
-            this.isLightPink = false
+        if (color=="blue"){
+            return "red"
+        }
+        if (color=="red") {
+            return "orange"
+        }else{
+            return "black"
         }
     }
     

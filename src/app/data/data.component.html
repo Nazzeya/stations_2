@@ -1,15 +1,49 @@
 <svg width="1000px" height="500px">
-    <svg *ngFor="let station of stations">
-        <rect
-        [class.black]="change()"
-        [class.lightBlue]="isLightBlue"
-        [class.lightPink]="isLightPink"
-        [attr.x]="station.coordinates.x" 
-        [attr.y]="station.coordinates.y" 
-        [attr.width]="station.size.width" 
-        [attr.height]="station.size.height"
-        (click)="change()"
-        >
-        </rect>
-    </svg>
+        <rect 
+        *ngFor="let figure of figures"
+        [attr.x]="figure.rect?.coordinates?.x" 
+        [attr.y]="figure.rect?.coordinates?.y" 
+        [attr.width]="figure.rect?.width"
+        [attr.height]="figure.rect?.height" 
+        [attr.fill]="figure.fill"
+        [attr.stroke]="figure.stroke"
+        [attr.stroke-width]="figure.strokeWidth"
+        />
+        <circle 
+        *ngFor="let figure of figures"
+        [attr.cx]="figure.circle?.coordinates?.x"
+        [attr.cy]="figure.circle?.coordinates?.y" 
+        [attr.r]="figure.circle?.r" 
+        [attr.fill]="figure.fill"
+        [attr.stroke]="figure.stroke"
+        [attr.stroke-width]="figure.strokeWidth"/>
+        <ellipse 
+        *ngFor="let figure of figures"
+        [attr.cx]="figure.ellipse?.coordinates?.x"
+        [attr.cy]="figure.ellipse?.coordinates?.y" 
+        [attr.rx]="figure.ellipse?.rx" 
+        [attr.ry]="figure.ellipse?.ry"
+        [attr.fill]="figure.fill" 
+        [attr.stroke]="figure.stroke"
+        [attr.stroke-width]="figure.strokeWidth"/>
+        <text 
+        *ngFor="let figure of figures"
+        [attr.x]="figure.text?.coordinates?.x"
+        [attr.y]="figure.text?.coordinates?.y"
+        [attr.fill]="figure.fill"
+        >{{figure.text?.text}}</text>
+        <polyline 
+        *ngFor="let figure of figures"
+        [attr.points]="figure.line?.points"
+        [attr.fill]="figure.fill"
+        [attr.stroke]="figure.stroke"
+        [attr.stroke-width]="figure.strokeWidth"
+        />
+        <polygon
+        *ngFor="let figure of figures"
+        [attr.points]="figure.polygon?.points"
+        [attr.fill]="figure.fill"
+        [attr.stroke]="figure.stroke"
+        [attr.stroke-width]="figure.strokeWidth"
+        />
 </svg>

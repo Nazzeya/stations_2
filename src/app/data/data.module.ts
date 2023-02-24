@@ -1,12 +1,12 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { DataComponent }   from './data.component';
 import { DataRoutingModule } from './data-routing.module';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     imports:      
-    [ BrowserModule, FormsModule, DataRoutingModule ],
+    [ CommonModule, FormsModule, DataRoutingModule ],
     declarations: [ DataComponent],
     exports: [ DataComponent]
 })
