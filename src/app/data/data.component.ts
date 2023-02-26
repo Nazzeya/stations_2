@@ -10,22 +10,4 @@ import { figures as info } from './data/figures';
 export class DataComponent{ 
     
     figures: IFigure[] = info;
-    
-    change(color: string){
-        if(color=="black") {
-            return "yellow"
-        }
-        if(color=="yellow"){
-            return "blue"
-        }
-        if (color=="blue"){
-            return "red"
-        }
-        if (color=="red") {
-            return "orange"
-        }else{
-            return "black"
-        }
-    }
-    
 }
