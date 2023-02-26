@@ -1,27 +1,84 @@
 <svg width="1000px" height="500px">
+
+        <!-- <svg *ngFor="let figure of figures">
+
+                <rect [attr.x]="figure.coordinates?.x" [attr.y]="figure.coordinates?.y" [attr.width]="figure.width"
+                        [attr.height]="figure.height" [attr.fill]="figure.fill" (click)="changeColor(figure)"/>
+
+                <circle [attr.cx]="figure.coordinates?.x" [attr.cy]="figure.coordinates?.y" [attr.r]="figure.r" />
+                <text [attr.x]="figure.coordinates?.x" [attr.y]="figure.coordinates?.y" (click)="textChange(figure)">{{figure.text}}</text>
+        </svg> -->
+
         <svg *ngFor="let figure of figures" [ngSwitch]="figure.type">
-        <ng-template ngSwitchCase="rect">
-                <rect [attr.x]="figure.coordinates?.x" 
+                 
+                <rect *ngSwitchCase="'rect'" 
+                [attr.x]="figure.coordinates?.x" 
                 [attr.y]="figure.coordinates?.y" 
                 [attr.width]="figure.width"
-                [attr.height]="figure.height" />
-        </ng-template>
-        <ng-template ngSwitchCase="polygon">
-        
-        </ng-template>
-        <ng-template ngSwitchCase="circle">
-                <circle [attr.cx]="figure.coordinates?.x"
-                [attr.cy]="figure.coordinates?.y"
-                [attr.r]="figure.r"/>
-        </ng-template>
-        <ng-template ngSwitchCase="ellipse">
-        
-        </ng-template>
-        <ng-template ngSwitchCase="polyline">
-        
-        </ng-template>
-        <ng-template ngSwitchCase="text">
-        
-        </ng-template>
+                [attr.height]="figure.height" 
+                [attr.fill]="figure.fill" 
+                (click)="changeColor(figure)"/>
+
+
+                <circle *ngSwitchCase="'circle'" 
+                [attr.cx]="figure.coordinates?.x" 
+                [attr.cy]="figure.coordinates?.y" 
+                [attr.r]="figure.r" 
+                [attr.fill]="figure.fill" 
+                (click)="changeColor(figure)"/>
+
+                <text  *ngSwitchCase="'text'" 
+                [attr.x]="figure.coordinates?.x" 
+                [attr.y]="figure.coordinates?.y"
+                (click)="textChange(figure)">{{figure.text}}</text>
+
         </svg>
+        
+        
+        
+        <!-- <svg *ngFor="let figure of figures">
+                <ng-template #rect>
+                        <rect [attr.x]="figure.coordinates?.x" [attr.y]="figure.coordinates?.y" [attr.width]="figure.width"
+                                [attr.height]="figure.height" />
+                </ng-template>
+                <ng-template #circle>
+                        <circle [attr.cx]="figure.coordinates?.x" [attr.cy]="figure.coordinates?.y" [attr.r]="figure.r" />
+                </ng-template>
+                <ng-template #polygon>
+                
+                </ng-template>
+                <ng-template #ellipse>
+                
+                </ng-template>
+                <ng-template #polyline>
+                
+                </ng-template>
+                <ng-template #text>
+                
+                </ng-template>
+        </svg>
+         -->
+        <!-- <svg *ngFor="let figure of figures" [ngSwitch]="figure.type">
+                <ng-container ngSwitchCase="rect">
+                        <rect [attr.x]="figure.coordinates?.x" [attr.y]="figure.coordinates?.y" [attr.width]="figure.width"
+                                [attr.height]="figure.height" />
+                </ng-container>
+
+                <ng-container ngSwitchCase="circle">
+                        <circle [attr.cx]="figure.coordinates?.x" [attr.cy]="figure.coordinates?.y" [attr.r]="figure.r" />
+                </ng-container>
+
+                <ng-template ngSwitchCase="polygon">
+                        
+                </ng-template> -->
+
+                <!-- <ng-template ngSwitchCase="ellipse">
+        
+                </ng-template> -->
+                <!-- <ng-template ngSwitchCase="polyline">
+        
+                </ng-template> -->
+                <!-- <ng-container ngSwitchCase="text">
+        
+                </ng-container> -->
 </svg>
