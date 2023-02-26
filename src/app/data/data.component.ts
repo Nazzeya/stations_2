@@ -28,7 +28,6 @@ export class DataComponent{
         ? { ...item, fill: this.colors(figure.fill) }
         : item
         ));
-        console.log(figure)
     }
 
     textChange(figure: IFigure){

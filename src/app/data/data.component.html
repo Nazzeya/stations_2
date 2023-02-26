@@ -27,10 +27,33 @@
                 [attr.fill]="figure.fill" 
                 (click)="changeColor(figure)"/>
 
+                <ellipse *ngSwitchCase="'ellipse'"
+                [attr.cx]="figure.coordinates?.x" 
+                [attr.cy]="figure.coordinates?.y" 
+                [attr.rx]="figure.rx" 
+                [attr.ry]="figure.ry"
+                [attr.fill]="figure.fill" 
+                (click)="changeColor(figure)"
+                />
+
                 <text  *ngSwitchCase="'text'" 
                 [attr.x]="figure.coordinates?.x" 
                 [attr.y]="figure.coordinates?.y"
-                (click)="textChange(figure)">{{figure.text}}</text>
+                [attr.fill]="figure.fill" 
+                (click)="changeColor(figure);textChange(figure)"
+                >{{figure.text}}</text>
+
+                <polygon *ngSwitchCase="'polygon'"
+                [attr.points]="figure.points"
+                [attr.stroke]="figure.stroke"
+                [attr.fill]="figure.fill" 
+                (click)="changeColor(figure)"/>
+
+                <polyline *ngSwitchCase="'polyline'"
+                [attr.points]="figure.points"
+                [attr.stroke]="figure.stroke"
+                [attr.fill]="figure.fill" 
+                />
 
         </svg>
         
