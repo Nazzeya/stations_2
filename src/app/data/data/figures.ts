@@ -9,8 +9,7 @@ export const figures: IFigure[] = [
             y: 30
         },
         width: 40,
-        height: 30,
-        fill: 'black'
+        height: 30
     },
     {
         id: 2,
@@ -29,8 +28,7 @@ export const figures: IFigure[] = [
             y: 100
         },
         width: 50,
-        height: 60,
-        fill: 'black'
+        height: 60
     },
     {
         id: 4,

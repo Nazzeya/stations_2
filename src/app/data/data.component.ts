@@ -49,9 +49,18 @@ export class DataComponent{
         else if(color=="pink"){
             color="blue";
         }
+        else if(color=="blue"){
+            color="red"
+        }
+        else if(color=="red"){
+            color="purple"
+        }
+        else if(color=="purple"){
+            color="orange"
+        }
         else{
             color="black"
-        };
+        }
         return color;
     }
 }
