@@ -26,3 +26,18 @@ input {
 .labels {
     margin: 10px;
 }
+
+.svg-outline {
+    border: 2px solid #000;
+    border-radius: 10px;
+    margin: auto;
+    width: 800px;
+    margin-top: 30px
+}
+
+.second-line {
+        padding-right: 30px;
+        margin-left: 10px;
+    display: flex;
+        justify-content: space-between;
+}

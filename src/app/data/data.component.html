@@ -10,77 +10,61 @@
                         </select>
                 </div>
         </div>
-        <div class="rect-line">
-                <div class="form-group labels">
-                        <label>X </label>
-                        <input type="number" class="form-control" name="xCoord" [(ngModel)]="xCoord" />
+        <div class="second-line" [ngSwitch]="type">
+                <div class="rect-line" *ngSwitchCase="'rect'">
+                        <div class="form-group labels">
+                                <label>X </label>
+                                <input type="number" class="form-control" name="xCoord" [(ngModel)]="xCoord" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Y </label>
+                                <input type="number" class="form-control" name="yCoord" [(ngModel)]="yCoord" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Width </label>
+                                <input type="number" class="form-control" name="width" [(ngModel)]="width" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Height </label>
+                                <input type="number" class="form-control" name="height" [(ngModel)]="height" />
+                        </div>
                 </div>
-                <div class="form-group labels">
-                        <label>Y </label>
-                        <input type="number" class="form-control" name="yCoord" [(ngModel)]="yCoord" />
+                <div class="form-group">
+                        <button class="submit" (click)="addFigure()">Submit</button>
                 </div>
-                <div class="form-group labels">
-                        <label>Width </label>
-                        <input type="number" class="form-control" name="width" [(ngModel)]="width" />
-                </div>
-                <div class="form-group labels">
-                        <label>Height </label>
-                        <input type="number" class="form-control" name="height" [(ngModel)]="height" />
-                </div>
-        </div>
-        <div class="form-group">
-                <button class="submit" (click)="addFigure()">Add</button>
         </div>
 </div>
 
-<svg width="1000px" height="500px">
-
-        <svg *ngFor="let figure of figures" [ngSwitch]="figure.type">
-                 
-                <rect *ngSwitchCase="'rect'" 
-                [attr.x]="figure.coordinates?.x" 
-                [attr.y]="figure.coordinates?.y" 
-                [attr.width]="figure.width"
-                [attr.height]="figure.height" 
-                [attr.fill]="figure.fill" 
-                (click)="changeColor(figure)"/>
-
-
-                <circle *ngSwitchCase="'circle'" 
-                [attr.cx]="figure.coordinates?.x" 
-                [attr.cy]="figure.coordinates?.y" 
-                [attr.r]="figure.r" 
-                [attr.fill]="figure.fill" 
-                (click)="changeColor(figure)"/>
-
-                <ellipse *ngSwitchCase="'ellipse'"
-                [attr.cx]="figure.coordinates?.x" 
-                [attr.cy]="figure.coordinates?.y" 
-                [attr.rx]="figure.rx" 
-                [attr.ry]="figure.ry"
-                [attr.fill]="figure.fill" 
-                (click)="changeColor(figure)"
-                />
-
-                <text  *ngSwitchCase="'text'" 
-                [attr.x]="figure.coordinates?.x" 
-                [attr.y]="figure.coordinates?.y"
-                [attr.fill]="figure.fill" 
-                (click)="changeColor(figure);textChange(figure)"
-                >{{figure.text}}</text>
-
-                <polygon *ngSwitchCase="'polygon'"
-                [attr.points]="figure.points"
-                [attr.stroke]="figure.stroke"
-                [attr.fill]="figure.fill" 
-                (click)="changeColor(figure)"/>
-
-                <polyline *ngSwitchCase="'polyline'"
-                [attr.points]="figure.points"
-                [attr.stroke]="figure.stroke"
-                [attr.fill]="figure.fill" 
-                />
-
+<div class="svg-outline">
+        <svg width="800px" height="500px">
+        
+                <svg *ngFor="let figure of figures" [ngSwitch]="figure.type">
+        
+                        <rect *ngSwitchCase="'rect'" [attr.x]="figure.coordinates?.x" [attr.y]="figure.coordinates?.y"
+                                [attr.width]="figure.width" [attr.height]="figure.height" [attr.fill]="figure.fill"
+                                (click)="changeColor(figure)" />
+        
+        
+                        <circle *ngSwitchCase="'circle'" [attr.cx]="figure.coordinates?.x" [attr.cy]="figure.coordinates?.y"
+                                [attr.r]="figure.r" [attr.fill]="figure.fill" (click)="changeColor(figure)" />
+        
+                        <ellipse *ngSwitchCase="'ellipse'" [attr.cx]="figure.coordinates?.x" [attr.cy]="figure.coordinates?.y"
+                                [attr.rx]="figure.rx" [attr.ry]="figure.ry" [attr.fill]="figure.fill"
+                                (click)="changeColor(figure)" />
+        
+                        <text *ngSwitchCase="'text'" [attr.x]="figure.coordinates?.x" [attr.y]="figure.coordinates?.y"
+                                [attr.fill]="figure.fill"
+                                (click)="changeColor(figure);textChange(figure)">{{figure.text}}</text>
+        
+                        <polygon *ngSwitchCase="'polygon'" [attr.points]="figure.points" [attr.stroke]="figure.stroke"
+                                [attr.fill]="figure.fill" (click)="changeColor(figure)" />
+        
+                        <polyline *ngSwitchCase="'polyline'" [attr.points]="figure.points" [attr.stroke]="figure.stroke"
+                                [attr.fill]="figure.fill" />
+        
+                </svg>
+        
         </svg>
+</div>
 
-</svg>
+
