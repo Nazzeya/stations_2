@@ -11,16 +11,28 @@ export class DataComponent{
     
     figures: IFigure[] = info;
 
-    type: string = ""
+    type: string = "";
+    width: number = 0;
+    height: number = 0;
+    xCoord: number = 0;
+    yCoord: number = 0; 
 
-    // addFigure(){
-    //     this.figures.push(
-    //         {
-    //             id: this.figures.length,
-    //             type: this.type
-    //         }
-    //     )
-    // }
+    types: string[] = ["rect", "circle", "ellipse", "polygon", "polyline", "text"];
+
+    addFigure(){
+        this.figures.push(
+            {
+                id: this.figures.length,
+                type: this.type,
+                coordinates: {
+                    x: this.xCoord,
+                    y: this.yCoord
+                },
+                width: this.width,
+                height: this.height
+            }
+        )
+    }
 
     changeColor(figure: IFigure){
         this.figures = this.figures.map((item) => (

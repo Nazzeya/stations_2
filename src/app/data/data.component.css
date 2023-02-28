@@ -1,12 +1,28 @@
-.black {
-    fill:black;
+.manager-window {
+    width: 600px;
+    border: 2px solid #0000CD;
+    border-radius: 10px;
+    margin: auto;
 }
-.lightBlue {
-    fill:lightblue;
+
+h4 {
+    margin-left: 10px;
+    margin-top: 0px;
 }
-.lightPink {
-    fill: lightpink;
+
+.first-line{
+    padding-top: 10px;
+    padding-right: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
 }
-.yellow {
-    fill: yellow;
+
+input {
+    width: 80px
+}
+
+.labels {
+    margin: 10px;
 }
