@@ -12,10 +12,31 @@ export class DataComponent{
     figures: IFigure[] = info;
 
     type: string = "";
+
+    //rect (width, height, x, y, fill, stroke)
     width: number = 0;
-    height: number = 0;
+    height: number = 0; 
+
+    //circle (cx, cy, r, fill, stroke)
+    radiusC: number = 0;
+
+    //ellipse (cx, cy, rx, ry, fill, stroke)
+    radiusX: number = 0;
+    radiusY: number = 0;
+
+    //text (x, y)
+    text: string = "";
+
     xCoord: number = 0;
-    yCoord: number = 0; 
+    yCoord: number = 0;
+
+    //polygon (points, fill, stroke)
+    //polyline (points, fill, stroke)
+    points: string = "0";
+
+    fill: string = "none";
+    stroke: string = "none";
+
 
     types: string[] = ["rect", "circle", "ellipse", "polygon", "polyline", "text"];
 
@@ -29,7 +50,14 @@ export class DataComponent{
                     y: this.yCoord
                 },
                 width: this.width,
-                height: this.height
+                height: this.height,
+                r: this.radiusC,
+                rx: this.radiusX,
+                ry: this.radiusY,
+                text: this.text,
+                points: this.points,
+                fill: this.fill,
+                stroke: this.stroke
             }
         )
     }

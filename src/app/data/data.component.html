@@ -28,9 +28,118 @@
                                 <label>Height </label>
                                 <input type="number" class="form-control" name="height" [(ngModel)]="height" />
                         </div>
+                        <div class="form-group labels">
+                                <label>Fill </label>
+                                <input type="string" class="form-control" name="fill" [(ngModel)]="fill" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Stroke </label>
+                                <input type="string" class="form-control" name="stroke" [(ngModel)]="stroke" />
+                        </div>
+                        <div class="form-group">
+                                <button class="submit" (click)="addFigure()">Submit</button>
+                        </div>
                 </div>
-                <div class="form-group">
-                        <button class="submit" (click)="addFigure()">Submit</button>
+                <div class="circle-line" *ngSwitchCase="'circle'">
+                        <div class="form-group labels">
+                                <label>Cx </label>
+                                <input type="number" class="form-control" name="xCoord" [(ngModel)]="xCoord" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Cy </label>
+                                <input type="number" class="form-control" name="yCoord" [(ngModel)]="yCoord" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Radius </label>
+                                <input type="number" class="form-control" name="radiusC" [(ngModel)]="radiusC" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Fill </label>
+                                <input type="string" class="form-control" name="fill" [(ngModel)]="fill" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Stroke </label>
+                                <input type="string" class="form-control" name="stroke" [(ngModel)]="stroke" />
+                        </div>
+                        <div class="form-group">
+                                <button class="submit" (click)="addFigure()">Submit</button>
+                        </div>
+                </div>
+                <div class="ellipse-line" *ngSwitchCase="'ellipse'">
+                        <div class="form-group labels">
+                                <label>Cx </label>
+                                <input type="number" class="form-control" name="xCoord" [(ngModel)]="xCoord" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Cy </label>
+                                <input type="number" class="form-control" name="yCoord" [(ngModel)]="yCoord" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Rx </label>
+                                <input type="number" class="form-control" name="radiusX" [(ngModel)]="radiusX" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Ry </label>
+                                <input type="number" class="form-control" name="radiusY" [(ngModel)]="radiusY" />
+                        </div>
+                        <div class="form-group">
+                                <button class="submit" (click)="addFigure()">Submit</button>
+                        </div>
+                </div>
+                <div class="polygon-line" *ngSwitchCase="'polygon'">
+                        <div class="form-group labels">
+                                <label>Points </label>
+                                <input type="string" class="form-control" name="points" [(ngModel)]="points" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Fill </label>
+                                <input type="string" class="form-control" name="fill" [(ngModel)]="fill" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Stroke </label>
+                                <input type="string" class="form-control" name="stroke" [(ngModel)]="stroke" />
+                        </div>
+                        <div class="form-group">
+                                <button class="submit" (click)="addFigure()">Submit</button>
+                        </div>
+                </div>
+                <div class="polyline-line" *ngSwitchCase="'polyline'">
+                        <div class="form-group labels">
+                                <label>Points </label>
+                                <input type="string" class="form-control" name="points" [(ngModel)]="points" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Fill </label>
+                                <input type="string" class="form-control" name="fill" [(ngModel)]="fill" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Stroke </label>
+                                <input type="string" class="form-control" name="stroke" [(ngModel)]="stroke" />
+                        </div>
+                        <div class="form-group">
+                                <button class="submit" (click)="addFigure()">Submit</button>
+                        </div>
+                </div>
+                <div class="text-line" *ngSwitchCase="'text'">
+                        <div class="form-group labels">
+                                <label>X </label>
+                                <input type="number" class="form-control" name="xCoord" [(ngModel)]="xCoord" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Y </label>
+                                <input type="number" class="form-control" name="yCoord" [(ngModel)]="yCoord" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Text </label>
+                                <input type="string" class="form-control" name="text" [(ngModel)]="text" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Fill </label>
+                                <input type="string" class="form-control" name="fill" [(ngModel)]="fill" />
+                        </div>
+                        <div class="form-group">
+                                <button class="submit" (click)="addFigure()">Submit</button>
+                        </div>
                 </div>
         </div>
 </div>
