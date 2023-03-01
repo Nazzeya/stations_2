@@ -1,13 +1,17 @@
 import { Component} from '@angular/core';
 import { IFigure } from './models/figure';
 import { figures as info } from './data/figures';
+import { DataService } from './services/data.service';
         
 @Component({
     selector: 'data-comp',
     templateUrl: './data.component.html',
-    styleUrls: ['./data.component.css']
+    styleUrls: ['./data.component.css'],
+    providers: [DataService]
 })
 export class DataComponent{ 
+
+    constructor(private dataService: DataService){}
     
     figures: IFigure[] = info;
 
@@ -38,7 +42,7 @@ export class DataComponent{
     stroke: string = "none";
 
 
-    types: string[] = ["rect", "circle", "ellipse", "polygon", "polyline", "text"];
+    types: string[] = [];
 
     addFigure(){
         this.figures.push(
@@ -72,7 +76,7 @@ export class DataComponent{
 
     textChange(figure: IFigure){
         let now = new Date();
-        const date = now.toLocaleString('ru-RU', {year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', second: 'numeric'})
+        const date = now.toLocaleString('ru-RU', {day: 'numeric', hour: 'numeric', second: 'numeric'})
         const dateDst = date.split(".").reverse().join("-");
 
         this.figures = this.figures.map((item) => (
@@ -102,5 +106,9 @@ export class DataComponent{
             color="black"
         }
         return color;
+    }
+
+    ngOnInit() {
+        this.types = this.dataService.getTypes();
     }
 }
