@@ -82,6 +82,14 @@
                                 <label>Ry </label>
                                 <input type="number" class="form-control" name="radiusY" [(ngModel)]="radiusY" />
                         </div>
+                        <div class="form-group labels">
+                                <label>Fill </label>
+                                <input type="string" class="form-control" name="fill" [(ngModel)]="fill" />
+                        </div>
+                        <div class="form-group labels">
+                                <label>Stroke </label>
+                                <input type="string" class="form-control" name="stroke" [(ngModel)]="stroke" />
+                        </div>
                         <div class="form-group">
                                 <button class="submit" (click)="addFigure()">Submit</button>
                         </div>
@@ -151,25 +159,26 @@
         
                         <rect *ngSwitchCase="'rect'" [attr.x]="figure.coordinates?.x" [attr.y]="figure.coordinates?.y"
                                 [attr.width]="figure.width" [attr.height]="figure.height" [attr.fill]="figure.fill"
-                                (click)="changeColor(figure)" />
+                                [attr.stroke]="figure.stroke" (click)="changeColor(figure)" />
         
         
                         <circle *ngSwitchCase="'circle'" [attr.cx]="figure.coordinates?.x" [attr.cy]="figure.coordinates?.y"
-                                [attr.r]="figure.r" [attr.fill]="figure.fill" (click)="changeColor(figure)" />
+                                [attr.r]="figure.r" [attr.fill]="figure.fill" [attr.stroke]="figure.stroke" 
+                                (click)="changeColor(figure)" />
         
                         <ellipse *ngSwitchCase="'ellipse'" [attr.cx]="figure.coordinates?.x" [attr.cy]="figure.coordinates?.y"
-                                [attr.rx]="figure.rx" [attr.ry]="figure.ry" [attr.fill]="figure.fill"
-                                (click)="changeColor(figure)" />
+                                [attr.rx]="figure.rx" [attr.ry]="figure.ry" [attr.fill]="figure.fill" 
+                                [attr.stroke]="figure.stroke" (click)="changeColor(figure)" />
         
                         <text *ngSwitchCase="'text'" [attr.x]="figure.coordinates?.x" [attr.y]="figure.coordinates?.y"
                                 [attr.fill]="figure.fill"
                                 (click)="changeColor(figure);textChange(figure)">{{figure.text}}</text>
         
                         <polygon *ngSwitchCase="'polygon'" [attr.points]="figure.points" [attr.stroke]="figure.stroke"
-                                [attr.fill]="figure.fill" (click)="changeColor(figure)" />
+                                [attr.fill]="figure.fill" [attr.stroke]="figure.stroke" (click)="changeColor(figure)" />
         
                         <polyline *ngSwitchCase="'polyline'" [attr.points]="figure.points" [attr.stroke]="figure.stroke"
-                                [attr.fill]="figure.fill" />
+                                [attr.fill]="figure.fill" (click)="changeColor(figure)" />
         
                 </svg>
         
